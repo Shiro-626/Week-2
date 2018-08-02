@@ -14,21 +14,39 @@ namespace Extension
             //Task 1A Extension
 
 
+            Boolean restart = true;
 
-            Console.WriteLine("Please choose which task you want to execute");
-            Console.WriteLine("For task 1 push 1");
-            Console.WriteLine("For task 2 push 2");
-            Console.WriteLine("For task 3 push 3");
-            int choice = Int32.Parse(Console.ReadLine());
+            do
+            {
 
-            if (choice == 1){
-                Task1();
-            }
-            else if (choice == 2) {
-                Task2(); }
-            else {
-                Task3();
-            }
+                Console.WriteLine("Please choose which task you want to execute");
+                Console.WriteLine("For task 1 push 1");
+                Console.WriteLine("For task 2 push 2");
+                Console.WriteLine("For task 3 push 3");
+                int choice = Int32.Parse(Console.ReadLine());
+
+                if (choice == 1)
+                {
+                    Task1();
+                }
+                else if (choice == 2)
+                {
+                    Task2();
+                }
+                else
+                {
+                    Task3();
+                }
+
+                Console.WriteLine("Do you want to run another task, Y/N");
+
+                var check = Console.ReadLine().ToUpper();
+                if ( check == "N")
+                {
+                    restart = false;
+                }
+                Console.Clear();
+            } while (restart);
 
             
 
@@ -60,32 +78,67 @@ namespace Extension
             //Task 2
 
 
-            Console.WriteLine("\nPlease enter your first number");
-            float num1 = float.Parse(Console.ReadLine());
+            float result = 0;
 
-            Console.WriteLine("Please enter your second number");
-            float num2 = float.Parse(Console.ReadLine());
+                Console.WriteLine("\nPlease enter your first number");
+                float num1 = float.Parse(Console.ReadLine());
 
-            Console.WriteLine("Please choose which calculation you want to perform");
-            Console.WriteLine("");
-            
+                Console.WriteLine("Please enter your second number");
+                float num2 = float.Parse(Console.ReadLine());
 
-
-            float add = num1 + num2;
-            float multiply = num1 * num2;
-            float divide = num1 / num2;
-            float subtract = num1 - num2;
+                Console.WriteLine("Please choose which calculation you want to perform: +, -, *, /");
+                string choice = Console.ReadLine();
 
 
-            Console.WriteLine("Calculations");
+                //Switch method
+                switch (choice)
+                {
+                    case "+":
+                        result = num1 + num2;
+                        break;
 
-            Console.WriteLine("{0} + {1} = {2}", num1, num2, add);
+                    case "-":
+                        result = num1 - num2;
+                        break;
 
-            Console.WriteLine("{0} * {1} = {2}", num1, num2, multiply);
+                    case "*":
+                        result = num1 * num2;
+                        break;
 
-            Console.WriteLine("{0} / {1} = {2}", num1, num2, divide);
+                    case "/":
+                        result = num1 / num2;
+                        break;
 
-            Console.WriteLine("{0} - {1} = {2}", num1, num2, subtract);
+                }
+
+                Console.WriteLine("{0}" + choice + "{1}={2}", num1, num2, result);
+
+
+            //If statement
+            /*    
+                float add, subtract, multiply, divide;
+                 if (choice == "+") 
+                { 
+                    float add = num1 + num2;
+                    Console.WriteLine("{0} + {1} = {2}", num1, num2, add);
+                }
+                else if (choice == "-")
+                {
+                    float subtract = num1 - num2;
+                    Console.WriteLine("{0} - {1} = {2}", num1, num2, subtract);
+                }
+                else if (choice == "*")
+                {
+                    float multiply = num1 * num2;
+                    Console.WriteLine("{0} * {1} = {2}", num1, num2, multiply);
+                }
+                else
+                {
+                    float divide = num1 / num2;
+                    Console.WriteLine("{0} / {1} = {2}", num1, num2, divide);
+                }  */
+
+
 
             Console.ReadLine();
         }
