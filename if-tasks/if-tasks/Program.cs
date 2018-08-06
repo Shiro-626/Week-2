@@ -204,30 +204,40 @@ namespace if_tasks
         {
             //Task 5 - New PIN Number program
 
-            Console.WriteLine("Please enter a 4 digit PIN number");
-            int pin = Int32.Parse(Console.ReadLine());
+            Boolean restart = true;
+            int pin =0;
+            
 
-            if(pin<=1000 || pin>=9999){
-                Console.WriteLine("This PIN number is not within the right parameters");
-            }
-            else
+            do
             {
-                Console.WriteLine("Please re-enter your PIN number");
-                int pin2 = Int32.Parse(Console.ReadLine());
+                Console.WriteLine("Please enter a 4 digit PIN number");
+                pin = Int32.Parse(Console.ReadLine());
 
-                if (pin2 == pin)
+                if (pin <= 1000 || pin >= 9999)
                 {
-                    Console.WriteLine("Your PIN has been set!");
+                    Console.WriteLine("This PIN number is not within the right parameters");
                 }
                 else
                 {
-                    Console.WriteLine("Your PIN numbers did not match. Your PIN was not set!");
+                    restart = false;
                 }
+            } while (restart);
+
+
+                    Console.WriteLine("Please re-enter your PIN number");
+                    int pin2 = Int32.Parse(Console.ReadLine());
+
+                    if (pin2 == pin)
+                    {
+                        Console.WriteLine("Your PIN has been set!");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Your PIN numbers did not match. Your PIN was not set!");
+                    }
+                
             }
 
-
-
-        }
         public static void Task6()
         {
             //Task 6 - Palindrome program
