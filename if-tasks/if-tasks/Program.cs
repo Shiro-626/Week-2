@@ -120,21 +120,30 @@ namespace if_tasks
         {
             //Task 3 - Grade
 
-            int finalMark = 100;
+            int finalMark = 0;
+            Boolean restart = true;
 
-            Console.WriteLine("Please enter in your final mark");
-            finalMark = Int32.Parse(Console.ReadLine());
+            do {
+                Console.WriteLine("Please enter in your final mark");
+                finalMark = Int32.Parse(Console.ReadLine());
 
-           // while (finalMark >= 101 || < 0) {
                 if (finalMark > 100)
                 {
                     Console.WriteLine("Warning: The mark you entered is greater than 100");
                 }
-                else if (finalMark == 100)
+                else if (finalMark < 0)
                 {
-                    Console.WriteLine("Your final mark is A+");
+                    Console.WriteLine("Warning: The mark you entered is less than 0");
                 }
-                else if (finalMark >= 90)
+                else
+                {
+                    restart = false;
+                }
+             } while (restart);
+           
+               
+                
+                if (finalMark >= 90)
                 {
                     Console.WriteLine("Your final mark is A+");
                 }
@@ -166,7 +175,7 @@ namespace if_tasks
                 {
                     Console.WriteLine("Warning: The mark you entered is less than 0");
                 }
-          //  }
+            
 
         }
 
@@ -174,31 +183,80 @@ namespace if_tasks
         {
             //Task 4 - Odd or Even
 
-        /*    int userNum =  ;
 
             Console.WriteLine("Please enter a number");
-            userNum = int.Parse(Console.ReadLine());
+            int userNum = int.Parse(Console.ReadLine());
 
-            if (userNum = )
+            userNum = userNum % 2;
+
+            if (userNum ==0)
             {
-                Console.WriteLine("");
+                Console.WriteLine("Your number is even");
             }
-            */
+            else
+            {
+                Console.WriteLine("Your number is odd");
+            }
+            
         }
 
         public static void Task5()
         {
             //Task 5 - New PIN Number program
 
-            Console.WriteLine("Please enter a 4 digit pin number");
+            Console.WriteLine("Please enter a 4 digit PIN number");
             int pin = Int32.Parse(Console.ReadLine());
+
+            if(pin<=1000 || pin>=9999){
+                Console.WriteLine("This PIN number is not within the right parameters");
+            }
+            else
+            {
+                Console.WriteLine("Please re-enter your PIN number");
+                int pin2 = Int32.Parse(Console.ReadLine());
+
+                if (pin2 == pin)
+                {
+                    Console.WriteLine("Your PIN has been set!");
+                }
+                else
+                {
+                    Console.WriteLine("Your PIN numbers did not match. Your PIN was not set!");
+                }
+            }
 
 
 
         }
         public static void Task6()
         {
+            //Task 6 - Palindrome program
 
+            string char1, char2, char3;
+
+            Console.WriteLine("Think of a three letter word");
+
+            Console.WriteLine("Please enter the first letter");
+            char1 = Console.ReadLine();
+
+            Console.WriteLine("Please enter the second letter");
+            char2 = Console.ReadLine();
+
+            Console.WriteLine("Please enter the third letter");
+            char3 = Console.ReadLine();
+
+            if (char2 != "a, e, i, o, u,")
+            {
+                Console.WriteLine("This is not an actual word");
+            }
+            else if (char1 == char3)
+            {
+                Console.WriteLine("Well done, your word is a palindrome!");
+            }
+            else
+            {
+                Console.WriteLine("This word is NOT a palindrome!");
+            }
         }
     }
 }
